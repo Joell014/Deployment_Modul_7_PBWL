@@ -1,0 +1,754 @@
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap");
+
+:root {
+    --ink: #111827;
+    --text: #374151;
+    --muted: #6b7280;
+    --page: #f5f6f8;
+    --surface: #ffffff;
+    --line: #e2e5ea;
+    --accent: #1e3a8a;
+    --accent-hover: #172b69;
+    --accent-soft: #e6ebf8;
+
+    --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-title: "Newsreader", Georgia, "Times New Roman", serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    background: var(--page);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    color: var(--ink);
+    line-height: 1.2;
+}
+
+a:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid #93a8e8;
+    outline-offset: 2px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+    background: var(--ink);
+    color: #e5e7eb;
+    padding: 40px 0 36px;
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+}
+
+.header p {
+    color: #9ca3af;
+    max-width: 60ch;
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--surface);
+}
+
+.nav-content {
+    display: flex;
+    gap: 6px;
+}
+
+.nav-content a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 16px 12px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.nav-content a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* ---------- Content ---------- */
+
+.content {
+    min-height: 70vh;
+    padding-top: 48px;
+    padding-bottom: 64px;
+}
+
+.hero {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 64px 56px;
+    text-align: left;
+}
+
+.hero h2 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 600;
+    max-width: 18ch;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    max-width: 55ch;
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+}
+
+/* ---------- Button ---------- */
+
+.btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 11px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    font: inherit;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+}
+
+/* ---------- Page header ---------- */
+
+.page-header {
+    margin-bottom: 32px;
+}
+
+.page-header h2 {
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+}
+
+.page-header p {
+    color: var(--muted);
+}
+
+/* ---------- Book list ---------- */
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.book-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s;
+}
+
+.book-card:hover {
+    border-color: #b6c0d6;
+}
+
+/* Ikon/logo dihilangkan, tampilan hanya teks */
+.book-icon,
+.detail-icon {
+    display: none;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 14px 0 8px;
+}
+
+.book-info p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.category {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.card-action {
+    margin-top: 24px;
+}
+
+/* ---------- Detail ---------- */
+
+.detail-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 48px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.detail-info {
+    max-width: 60ch;
+}
+
+.detail-info h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 14px 0 12px;
+}
+
+.detail-info p {
+    margin: 10px 0;
+}
+
+.detail-info .btn {
+    margin-top: 24px;
+}
+
+/* ---------- Not found ---------- */
+
+.not-found {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-align: center;
+    padding: 64px 24px;
+}
+
+.not-found h2 {
+    font-size: 1.75rem;
+    margin-bottom: 12px;
+}
+
+.not-found p {
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: var(--ink);
+    color: #9ca3af;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 24px 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        padding: 28px 0;
+    }
+
+    .header h1 {
+        font-size: 1.6rem;
+    }
+
+    .nav-content {
+        overflow-x: auto;
+    }
+
+    .hero {
+        padding: 40px 24px;
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-card {
+        flex-direction: column;
+        padding: 28px 24px;
+        gap: 24px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        transition: none !important;
+    }
+
+}
+
+:root {
+    --galat: #b42318;
+    --galat-bg: #fdf0ee;
+    --ok: #166534;
+    --ok-bg: #eef7f0;
+    --peringatan: #8a5a00;
+    --peringatan-bg: #fbf4e4;
+}
+ 
+/* ---------- Pesan (sukses, validasi, error) ---------- */
+ 
+.pesan {
+    padding: 12px 16px;
+    margin-bottom: 28px;
+    border-left: 4px solid;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+}
+ 
+.pesan-success { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); }
+.pesan-warning { background: var(--peringatan-bg); border-color: var(--peringatan); color: var(--peringatan); }
+.pesan-danger  { background: var(--galat-bg); border-color: var(--galat); color: var(--galat); }
+ 
+/* ---------- Tata letak dua kolom ---------- */
+ 
+.katalog {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+}
+ 
+/* ---------- Formulir "catat buku" ---------- */
+ 
+.catat {
+    position: sticky;
+    top: 80px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px 24px 24px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+ 
+/* Saat mengubah data: panel diberi lingkaran biru supaya jelas sedang mode ubah */
+.catat--ubah {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+ 
+.catat h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+ 
+.catat-bantuan {
+    margin: 4px 0 26px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+ 
+.isian {
+    margin-bottom: 20px;
+}
+ 
+.isian label {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+ 
+/* Kolom isian bergaya garis bawah, seperti mengisi kartu katalog */
+.isian input,
+.isian select {
+    width: 100%;
+    padding: 8px 0;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    border-bottom: 1.5px solid #c3c9d4;
+    border-radius: 0;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+ 
+.isian input::placeholder {
+    color: #a3a9b5;
+}
+ 
+.isian input:focus,
+.isian select:focus {
+    outline: none;
+    border-bottom-color: var(--accent);
+    box-shadow: 0 1.5px 0 0 var(--accent);
+}
+ 
+.isian .tidak-valid {
+    border-bottom-color: var(--galat);
+    box-shadow: 0 1.5px 0 0 var(--galat);
+}
+ 
+.galat {
+    display: block;
+    min-height: 1.2em;
+    margin-top: 4px;
+    font-size: 0.82rem;
+    color: var(--galat);
+}
+ 
+.catat-aksi {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 6px;
+}
+ 
+.catat [hidden] {
+    display: none;
+}
+ 
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+ 
+.btn-teks {
+    padding: 6px 0;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--muted);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+ 
+.btn-teks:hover {
+    color: var(--ink);
+}
+ 
+/* ---------- Rak buku (tabel) ---------- */
+ 
+.rak-kepala {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--ink);
+}
+ 
+.rak-kepala h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+ 
+.rak-kepala span {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+ 
+.rak-gulir {
+    overflow-x: auto;
+}
+ 
+.rak-tabel {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+ 
+.rak-tabel th {
+    padding: 12px 14px 10px;
+    text-align: left;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+    border-bottom: 1px solid var(--line);
+}
+ 
+.rak-tabel td {
+    padding: 16px 14px;
+    vertical-align: baseline;
+    border-bottom: 1px solid var(--line);
+    transition: background-color 0.15s;
+}
+ 
+/* Punggung buku: garis warna di tepi kiri tiap baris, warnanya mengikuti kategori */
+.rak-tabel th:first-child,
+.rak-tabel td:first-child {
+    padding-left: 16px;
+    border-left: 5px solid transparent;
+}
+ 
+.rak-tabel tbody td:first-child {
+    border-left-color: var(--spine, transparent);
+}
+ 
+.rak-tabel tbody tr:hover td {
+    background: rgba(30, 58, 138, 0.04);
+}
+ 
+.rak-tabel tbody tr.sedang-diubah td {
+    background: var(--accent-soft);
+}
+ 
+.rak-tabel .no {
+    width: 3.2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+ 
+.rak-tabel .kategori {
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+ 
+.rak-tabel .kategori::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--spine, var(--line));
+}
+ 
+.rak-tabel .judul {
+    font-family: var(--font-title);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink);
+}
+ 
+.rak-tabel .tahun {
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    font-variant-numeric: tabular-nums;
+}
+ 
+.rak-tabel .aksi {
+    text-align: right;
+    white-space: nowrap;
+}
+ 
+.aksi-link {
+    padding: 6px 8px;
+    font: inherit;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: none;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s, color 0.15s;
+}
+ 
+.aksi-link:hover {
+    text-decoration-color: currentColor;
+}
+ 
+.aksi-link:focus-visible,
+.btn-teks:focus-visible,
+.btn-garis:focus-visible {
+    outline: 3px solid #93a8e8;
+    outline-offset: 2px;
+}
+ 
+.aksi-link.hapus {
+    color: var(--muted);
+}
+ 
+.aksi-link.hapus:hover {
+    color: var(--galat);
+}
+ 
+.rak-kosong {
+    padding: 56px 16px;
+    text-align: center;
+    color: var(--muted);
+}
+ 
+.rak-kosong.error {
+    color: var(--galat);
+}
+ 
+/* Warna punggung buku per kategori */
+.spine-1 { --spine: #1e3a8a; }
+.spine-2 { --spine: #b7791f; }
+.spine-3 { --spine: #2f6f4f; }
+.spine-4 { --spine: #9a3b2e; }
+.spine-5 { --spine: #6b4a7a; }
+.spine-6 { --spine: #2b6f77; }
+ 
+/* ---------- Pagination ---------- */
+ 
+.rak-kaki {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 18px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+ 
+.pager {
+    display: flex;
+    gap: 10px;
+}
+ 
+.btn-garis {
+    padding: 7px 14px;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+ 
+.btn-garis:hover:not(:disabled) {
+    background: var(--accent-soft);
+}
+ 
+.btn-garis:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+ 
+/* ---------- Responsive ---------- */
+ 
+@media (max-width: 980px) {
+    .katalog {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+ 
+    .catat {
+        position: static;
+    }
+}
+ 
+@media (max-width: 640px) {
+    .rak-tabel .no,
+    .rak-tabel th:nth-child(1) {
+        display: none;
+    }
+ 
+    .rak-tabel td {
+        padding: 14px 10px;
+    }
+ 
+    .rak-tabel th:nth-child(2),
+    .rak-tabel td:nth-child(2) {
+        padding-left: 16px;
+        border-left: 5px solid transparent;
+    }
+ 
+    .rak-tabel tbody td:nth-child(2) {
+        border-left-color: var(--spine, transparent);
+    }
+}
+
+/* =====================================================================
+   Menu akun di navbar (Masuk, Daftar, nama pengguna, Keluar)
+   Tempel di bagian PALING BAWAH resources/css/perpustakaan.css
+   ===================================================================== */
+
+   .nav-akun {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.nav-akun form {
+    margin: 0;
+}
+
+/* Tombol "Keluar" dibuat tampil seperti tautan lain di navbar */
+.nav-keluar {
+    padding: 16px 12px;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.nav-keluar:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.nav-keluar:focus-visible {
+    outline: 3px solid #93a8e8;
+    outline-offset: -3px;
+}
